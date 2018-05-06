@@ -1,8 +1,24 @@
-module.exports = function(app) {
-    var homeController = {
-        index: function(req, res) {
-            res.render('home/index');
+module.exports = (app) => {
+    const HomeController = {
+      index(req, res) {
+        res.render('home/index');
+      },
+      login(req, res) {
+        const { usuario } = req.body;
+        const { email, nome } = usuario;
+        console.log('Usuario: ', usuario);
+        if (email && nome) {
+          usuario.contatos = [];
+          req.session.usuario = usuario;
+          res.redirect('/contatos');
+        } else {
+          res.redirect('/');
         }
+       },
+       logout(req, res) {
+        req.session.destroy();
+         res.redirect('/');
+       }
     };
-    return homeController;
-};
+    return HomeController;
+  };

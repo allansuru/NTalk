@@ -4,6 +4,7 @@ module.exports = (app) => {
         const { usuario } = req.session;
         const { contatos } = usuario;
         console.log('Controller Contatos:', usuario);
+        console.log('Contatos do Usuario: ', usuario.contatos)
         
         res.render('contatos/index', { usuario, contatos });
       },
@@ -23,6 +24,7 @@ module.exports = (app) => {
         const { id } = req.params;
         const { usuario } = req.session;
         const contato = usuario.contatos[id];
+        console.log(req.params);
         res.render('contatos/edit', { id, contato, usuario });
       },
       update(req, res) {

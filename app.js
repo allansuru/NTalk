@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 const methodOverride = require('method-override');
-// const error = require('./middlewares/error');
+const error = require('./middleware/error');
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -24,8 +24,8 @@ consign({})
   .into(app)
 ;
 
-//app.use(error.notFound);
-//app.use(error.serverError);
+app.use(error.notFound);
+app.use(error.serverError);
 
 app.listen(3000, () => {
   console.log('Ntalk no ar.');

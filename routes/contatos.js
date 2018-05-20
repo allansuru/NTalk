@@ -1,8 +1,10 @@
+const autenticar = require('./../middleware/autenticador');
+
 module.exports = (app) => {
-    const autenticar = require('./../middleware/autenticador');
+
     const { contatos } = app.controllers;
 
-    app.get('/contatos', contatos.index);
+    app.get('/contatos', autenticar, contatos.index);
     app.get('/contato/:id', autenticar, contatos.show);
     app.post('/contato', autenticar, contatos.create);
     app.get('/contato/:id/editar', autenticar,  contatos.edit);

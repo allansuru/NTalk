@@ -1,3 +1,6 @@
+
+var alertNode = require("alert-node")
+
 module.exports = (app) => {
     const ContatosController = {
       index(req, res) {
@@ -10,8 +13,12 @@ module.exports = (app) => {
       create(req, res) {
         const { contato } = req.body;
         const { usuario } = req.session;
-        usuario.contatos.push(contato);
-        res.redirect('/contatos');
+         if (contato.nome != '' && contato.email) {
+          usuario.contatos.push(contato);
+          res.redirect('/contatos');  
+         } else {
+          alertNode('Nome e email obrigatórios');
+         }
       },
       show(req, res) {
         const { id } = req.params;

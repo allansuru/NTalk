@@ -1,6 +1,6 @@
 <% include ../header %>
 <header>
-  <h2>Ntalk - Agenda de contatos</h2>
+  <h2>Ntalk - Agenda de contatos --- <%- usuario.nome %></h2>
 </header>
 <section>
   <form action="/contato" method="post">
@@ -30,6 +30,9 @@
           <td><%- contato.nome %></td>
           <td><%- contato.email %></td>
           <td>
+            <span id="notify_<%- contato.email %>">Offline</span>
+          </td>
+          <td>
             <a href="/contato/<%- index %>">Detalhes</a>
             <a href="/chat" id="chat_<%- contato.email %>">Conversar</a>
           </td>
@@ -38,5 +41,6 @@
     </tbody>
   </table>
 </section>
+<% include notify_script %>
 <% include ../exit %>
 <% include ../footer %>

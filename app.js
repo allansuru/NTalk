@@ -15,6 +15,8 @@ const server = http.Server(app);
 const io = socketIO(server);
 const store = new expressSession.MemoryStore();
 
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(expressSession({

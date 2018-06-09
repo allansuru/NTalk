@@ -9,12 +9,16 @@ const expressSession = require('express-session');
 const methodOverride = require('method-override');
 const config = require('./config');
 const error = require('./middleware/error');
+const bluebird = require('bluebird');
+const mongoose = require('mongoose');
+
+mongoose.Promise = bluebird;
+global.db = mongoose.connect('mongodb://localhost:27017/ntalk', { useMongoClient: true });
 
 const app = express();
 const server = http.Server(app);
 const io = socketIO(server);
 const store = new expressSession.MemoryStore();
-
 
 
 app.set('views', path.join(__dirname, 'views'));

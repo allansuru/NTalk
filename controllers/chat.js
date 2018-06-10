@@ -1,10 +1,12 @@
 const crypto = require('crypto');
+let nome = '';
 
 module.exports = (app) => {
   const ChatController = {
     index(req, res) {
       const { sala } = req.query;
       let hashDaSala = sala;
+      this.nome = req.session.usuario.nome;
       if (!hashDaSala) {
         const timestamp = Date.now().toString();
         const md5 = crypto.createHash('md5');

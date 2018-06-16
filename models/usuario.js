@@ -1,3 +1,4 @@
+const db = require('../libs/db.js');
 const Schema = require('mongoose').Schema;
 
 module.exports = () => {

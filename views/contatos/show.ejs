@@ -3,7 +3,7 @@
   <h2>Ntalk - Dados do contato</h2>
 </header>
 <section>
-  <form action="/contato/<%- id %>?_method=delete"
+  <form action="/contato/<%- contato._id %>?_method=delete"
     method="post">
     <div class="form-group">
     <p><label>Nome:</label><%- contato.nome %></p>
@@ -12,7 +12,7 @@
     </div>
       <button class="btn btn-danger" type="submit">Excluir</button>
       <div class="alert alert-primary" role="alert"></div>
-      <a href="/contato/<%- id %>/editar">Editar</a>
+      <a href="/contato/<%- contato._id %>/editar">Editar</a>
   </div>
     </p>
   </form>

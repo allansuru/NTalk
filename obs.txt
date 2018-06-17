@@ -1,0 +1,4 @@
+rodar testes
+
+mocha test/requests
+mocha test/requests --reporter spec

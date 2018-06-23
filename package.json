@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "private": false,
   "scripts": {
-    "start": "node app.js",
+    "start": "node app.js >> app.log",
     "test": "NODE_ENV=test mocha test/**/*.js"
   },
   "dependencies": {
     "alert-node": "^1.2.1",
+    "bluebird": "3.5.1",
     "body-parser": "1.17.1",
     "bootstrap": "^4.1.1",
     "consign": "^0.1.6",
@@ -20,11 +21,10 @@
     "express-session": "1.15.3",
     "http-errors": "~1.6.2",
     "method-override": "2.3.9",
+    "mongoose": "4.12.1",
     "morgan": "~1.9.0",
     "redis": "2.8.0",
-    "socket.io": "2.0.3",
-    "mongoose": "4.12.1",
-    "bluebird": "3.5.1"
+    "socket.io": "2.0.3"
   },
   "devDependencies": {
     "mocha": "*",

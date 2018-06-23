@@ -2,3 +2,14 @@ rodar testes
 
 mocha test/requests
 mocha test/requests --reporter spec
+
+--
+
+debugando
+
+node --inspect app.js
+
+no chrome: about:inspect
+
+-- cluster
+node cluster.js
